@@ -9,7 +9,7 @@ namespace GoatInvoicer.Design
         {
             // Use this to create design time data
 
-            var item = new DataItem("Welcome to MVVM Light [design]");
+            var item = new DataItem("Goat Invoicer [design]", "Cheeky Goat", new Invoicer());
             callback(item, null);
         }
     }

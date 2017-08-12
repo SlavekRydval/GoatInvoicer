@@ -6,10 +6,10 @@
         xmlns:ignore="http://www.galasoft.ch/ignore"
         mc:Ignorable="d ignore"
         Height="300"
-        Width="300"
-        Title="Goat Invoicer"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
-    
+        Width="400"
+        Title="{Binding ApplicationTitle}"
+        DataContext="{Binding Main, Source={StaticResource Locator}}" ResizeMode="CanResizeWithGrip">
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,8 +19,13 @@
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-        <TextBlock FontSize="36"
+        <StackPanel Grid.Row="0">
+            <TextBlock FontSize="32"
                    FontWeight="Bold"
                    Foreground="Purple"
                    Text="{Binding WelcomeTitle}"
@@ -28,5 +33,24 @@
                    HorizontalAlignment="Center"
                    TextWrapping="Wrap" />
 
+            <TextBlock FontSize="20"
+                   FontWeight="Bold"
+                   Foreground="Purple"
+                   Text="{Binding Invoicer.Name}"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap" />
+
+            <Button Padding="3" Margin="20,5,20,5" Content="Nová faktura"/>
+            <Button Padding="3" Margin="20,5,20,5" Content="Seznam faktur"/>
+            <Button Padding="3" Margin="20,5,20,5" Content="Nový odběratel"/>
+            <Button Padding="3" Margin="20,5,20,5" Content="Nastavení"/>
+            <Button Padding="3" Margin="20,5,20,5" Content="O aplikaci" Command="{Binding cmdAbout}"/>
+        </StackPanel>
+
+
+        <StatusBar Grid.Row="1" Focusable="False">
+            <StatusBarItem Content="{Binding Invoicer.Name}"/>
+        </StatusBar>
     </Grid>
 </Window>

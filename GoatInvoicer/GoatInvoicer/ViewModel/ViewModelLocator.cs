@@ -13,6 +13,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using GoatInvoicer.Model;
+using GoatInvoicer.Helpers;
 
 namespace GoatInvoicer.ViewModel
 {
@@ -32,10 +33,12 @@ namespace GoatInvoicer.ViewModel
             if (ViewModelBase.IsInDesignModeStatic)
             {
                 SimpleIoc.Default.Register<IDataService, Design.DesignDataService>();
+                SimpleIoc.Default.Register<IDialogService, WPFDialogService>();
             }
             else
             {
                 SimpleIoc.Default.Register<IDataService, DataService>();
+                SimpleIoc.Default.Register<IDialogService, WPFDialogService>();
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
