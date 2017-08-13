@@ -37,5 +37,8 @@ namespace GoatInvoicer.Model
         /// Typ plátce DPH
         /// </summary>
         public UserVATType VATType { get; set; }
+
+
+        public BankAccount BankAccount { get; set; } = null; 
     }
 }
